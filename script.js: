@@ -1,0 +1,18 @@
+const form = document.querySelector('form');
+const messages = document.querySelector('#messages');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const name = event.target.name.value;
+  const message = event.target.message.value;
+
+  // メッセージをリストに追加
+  const li = document.createElement('li');
+  li.textContent = `${name}: ${message}`;
+  messages.appendChild(li);
+
+  // 入力欄をクリア
+  event.target.name.value = '';
+  event.target.message.value = '';
+});
